@@ -34,7 +34,17 @@ export default ({item}) => {
                         </div>
                     </div>
                     <div className='featured--description'>
-                        {item.overview}
+                        {
+                            item.overview
+                        }
+                        {
+                            ! item.overview &&
+                            <>
+                            <span>dfghj</span>
+                            <span></span>
+                            </>
+                            
+                        }
                     </div>
                     <div className='featured--buttons'>
                         <a href={`/watch/${item.id}`} className="featured--watchbutton">►Assistir</a>

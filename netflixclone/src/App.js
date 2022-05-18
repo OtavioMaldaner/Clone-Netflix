@@ -9,7 +9,7 @@ export default () => {
   
 const [movieList, setMovieList] = useState([]);
 const [FeaturedData, setFeaturedData] = useState(null);
-const [blackHeader, setBlackHeader] = useState(true);
+const [blackHeader, setBlackHeader] = useState(false);
 
 useEffect(()=>{
 
@@ -29,6 +29,21 @@ useEffect(()=>{
   loadAll();
 }, []);
 
+useEffect(()=>{
+  const scrollListener = () => {
+    if(window.scrollY > 10) {
+      setBlackHeader(true);
+    } else {
+      setBlackHeader(false)
+    }
+
+  }
+  window.addEventListener('scroll', scrollListener);
+  return () => {
+    window.removeEventListener('scroll', scrollListener);
+  }
+}, []);
+
   return (
     <div className="page">
       <Header black={blackHeader} />
@@ -43,6 +58,14 @@ useEffect(()=>{
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
       </section>
+
+      <footer>
+        Feito por Otávio João Maldaner <br/>
+        Início: 16/05/2022 <br/>
+        Fim: 18/05/2022 <br/>
+        Direitos de imagem para Netflix <br/>
+        Dadod pegos do site Themoviedb.org
+      </footer>
     </div>
   )
 }

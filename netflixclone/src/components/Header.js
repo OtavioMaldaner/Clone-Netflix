@@ -1,7 +1,7 @@
 import React from "react";
 import './Header.css';
 
-export default () => {
+export default ({black}) => {
     return (
         //  Ver erro "ERROR in src\components\Header.js
         //Line 6:28:  'black' is not defined  no-undef
