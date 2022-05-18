@@ -9,6 +9,11 @@ export default ({item}) => {
     for(let i in item.genres) {
         genres.push(item.genres[i].name);
     }
+
+    let description = item.overview;
+    if(description.length > 200) {
+        description = description(0, 200) + '...';
+    }
     return (
         <section className='featured' style={{
             backgroundSize: 'cover',
@@ -35,10 +40,10 @@ export default ({item}) => {
                     </div>
                     <div className='featured--description'>
                         {
-                            item.overview
+                            description
                         }
                         {
-                            ! item.overview &&
+                            ! description &&
                             <>
                             <span>dfghj</span>
                             <span></span>
