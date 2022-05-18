@@ -45,10 +45,8 @@ export default ({item}) => {
                         {
                             ! description &&
                             <>
-                            <span>dfghj</span>
-                            <span></span>
-                            </>
-                            
+                            <span>O filme ou série {item.original_name} não tem descrição definida</span>
+                            </> 
                         }
                     </div>
                     <div className='featured--buttons'>
